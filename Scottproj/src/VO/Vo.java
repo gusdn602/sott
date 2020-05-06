@@ -22,10 +22,11 @@ public class Vo {
 	public String getHiredate() {
 		return hiredate;
 	}
-	public void setHiredate() {
-		SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd");
+	public void setHiredate(String hiredate) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		SimpleDateFormat stf = new SimpleDateFormat("hh:mm:ss");
 		this.hiredate = sdf.format(sDate) + stf.format(sTime);
+		
 	}
 	public int getEno() {
 		return eno;

@@ -22,6 +22,8 @@ public class Dao {
 	}
 	
 	public int addMember(Vo vo) {
+		
+		con = db.getCon();
 		int cnt = 0; //반환값 변수 생성
 		
 		String sql1 = sql.getSQL(sql.ADD_MEMB);
@@ -31,13 +33,14 @@ public class Dao {
 		
 		// 질의 명령에 필요한 데이터 채우기
 		try {
-			
-			pstmt.setString(1, vo.getEname());
-			pstmt.setString(2, vo.getJob());
-			pstmt.setInt(3, vo.getMgr());
-			pstmt.setInt(4, vo.getSal());
-			pstmt.setInt(5, vo.getComm());
-			pstmt.setInt(6, vo.getDno());
+			pstmt.setInt(1, vo.getEno());
+			pstmt.setString(2, vo.getEname());
+			pstmt.setString(3, vo.getJob());
+			pstmt.setInt(4, vo.getMgr());
+			pstmt.setString(5, vo.getHiredate());
+			pstmt.setInt(6, vo.getSal());
+			pstmt.setInt(7, vo.getComm());
+			pstmt.setInt(8, vo.getDno());
 			
 		//질의명령 완성 및 보내기, 변경된 행수 반환
 			cnt = pstmt.executeUpdate();
@@ -69,9 +72,11 @@ public class Dao {
 			// ResultSet에 담긴 내용 VO에 채워주기
 			mvo.setEno(rs.getInt("empno"));
 			mvo.setEname(rs.getString("ename"));
-			mvo.setsDate(rs.getDate("hiredate"));
-			mvo.setsTime(rs.getTime("hiredate"));
-			mvo.setHiredate();
+			/*
+			 * mvo.setsDate(rs.getDate("hiredate")); mvo.setsTime(rs.getTime("hiredate"));
+			 * mvo.setHiredate();
+			 */
+			
 			mvo.setSal(rs.getInt("sal"));
 		}catch(Exception e) {
 			e.printStackTrace();
