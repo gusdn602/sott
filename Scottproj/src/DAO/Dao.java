@@ -37,10 +37,9 @@ public class Dao {
 			pstmt.setString(2, vo.getEname());
 			pstmt.setString(3, vo.getJob());
 			pstmt.setInt(4, vo.getMgr());
-			pstmt.setString(5, vo.getHiredate());
-			pstmt.setInt(6, vo.getSal());
-			pstmt.setInt(7, vo.getComm());
-			pstmt.setInt(8, vo.getDno());
+			pstmt.setInt(5, vo.getSal());
+			pstmt.setInt(6, vo.getComm());
+			pstmt.setInt(7, vo.getDno());
 			
 		//질의명령 완성 및 보내기, 변경된 행수 반환
 			cnt = pstmt.executeUpdate();

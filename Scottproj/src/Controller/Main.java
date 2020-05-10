@@ -48,8 +48,6 @@ public class Main {
 		
 		
 	public void No2() {	
-		// 데이터베이스 처리함수 호출
-		Dao mDao = new Dao();
 		// 입사하는 사원의 정보를 입력하는 기능을 구현.
 		// 신규사원을 추가하기 위해 Vo를 새로운 객체로 생성
 		Vo addmember = new Vo();
@@ -71,8 +69,6 @@ public class Main {
 		int mgr1 = Integer.parseInt(mgr);
 		addmember.setMgr(mgr1);
 
-		String hiredate = JOptionPane.showInputDialog("신규 사원의 입사일을 입력하세요!!");
-		addmember.setHiredate(hiredate);
 
 		String sal = JOptionPane.showInputDialog("신규 사원의 급여를 입력하세요!!");
 		int sal1 = Integer.parseInt(sal);
@@ -82,14 +78,21 @@ public class Main {
 		int comm1 = Integer.parseInt(comm);
 		addmember.setComm(comm1);
 
-		String dno = JOptionPane.showInputDialog("신규 사원의 부서번호를 입력하세요!!");
-		int dno1 = Integer.parseInt(dno);
-		addmember.setDno(dno1);
+		String deptno = JOptionPane.showInputDialog("신규 사원의 부서번호를 입력하세요!!");
+		int dno = Integer.parseInt(deptno);
+		addmember.setDno(dno);
 
+		// 데이터베이스 처리함수 호출
+		Dao mDao = new Dao();
 		
+		int cnt = mDao.addMember(addmember);
 		
+		if(cnt == 1) {
+			JOptionPane.showMessageDialog(null, addmember.getEname() + " 님이 가입했습니다.");
+		} else  {
+			JOptionPane.showMessageDialog(null, addmember.getEname() + " 님이 가입이 거절되었습니다.");
+		}
 		
-
 	}
 	
 	public void No3() {

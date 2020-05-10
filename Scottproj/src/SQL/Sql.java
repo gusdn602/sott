@@ -22,11 +22,10 @@ public class Sql {
 			
 		case ADD_MEMB:
 			buf.append("INSERT INTO ");
-			buf.append("EMP0(empno, ename, job, mgr, hiredate, sal, comm, dno) ");
+			buf.append("EMP0(empno, ename, job, mgr, hiredate, sal, comm, deptno) ");
 			buf.append("VALUES( ");
-			buf.append(" (SELCET NVL(MAX(mno) + 1,1000) FROM  emp <> 9999),");
-			buf.append("?,?,?,sysdate,?,?,? ");
-			buf.append(") " );
+			buf.append("?,?,?,?,sysdate,?,?,? ");
+			buf.append(") ");
 			break;
 			
 		case UPDATE_MEMB:

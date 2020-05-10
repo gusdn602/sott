@@ -23,7 +23,7 @@ public class Vo {
 		return hiredate;
 	}
 	public void setHiredate(String hiredate) {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd");
 		SimpleDateFormat stf = new SimpleDateFormat("hh:mm:ss");
 		this.hiredate = sdf.format(sDate) + stf.format(sTime);
 		
